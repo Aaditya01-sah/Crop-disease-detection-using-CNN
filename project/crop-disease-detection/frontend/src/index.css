@@ -1,0 +1,94 @@
+/* ------------------------------------------------------------------ */
+/* Design tokens — "Herbarium specimen sheet" direction               */
+/* Grounded in botanical field-journal / pressed-specimen aesthetics, */
+/* since the product is literally a leaf diagnostic instrument.       */
+/* ------------------------------------------------------------------ */
+:root {
+  --paper: #eae2c9;
+  --paper-deep: #ded2ac;
+  --paper-line: rgba(32, 43, 28, 0.16);
+  --ink: #202b1c;
+  --ink-soft: #4d5940;
+  --ink-faint: #7c8468;
+
+  --leaf: #33512c;
+  --leaf-deep: #1e3018;
+  --leaf-soft: #5c7a4e;
+
+  --rust: #9c4229;
+  --rust-deep: #7a3220;
+  --ochre: #b1822a;
+  --ochre-deep: #8c6620;
+
+  --card: #f4efdd;
+  --shadow-ink: rgba(30, 39, 22, 0.22);
+
+  --font-display: "Fraunces", "Iowan Old Style", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", monospace;
+
+  --radius-sm: 3px;
+  --radius-md: 6px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--paper-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--paper-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--leaf);
+  color: var(--paper);
+}
+
+/* visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
